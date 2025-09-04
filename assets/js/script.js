@@ -1,38 +1,24 @@
 function quickSearch() {
-    const zipCode = document.getElementById('heroZip').value;
-    if (zipCode.length >= 5) {
-        document.querySelector('#zipCode').value = zipCode;
+    const inputSearch = document.getElementById('search-hero').value;
+
+    if (inputSearch.length == 9) {
+        document.querySelector('#input-finder').value = inputSearch;
         document.querySelector('#results').classList.add('show');
         document.querySelector('#results').scrollIntoView({ behavior: 'smooth' });
     } else {
-        alert('Por favor, digite um CEP válido (pelo menos 5 dígitos)');
+        alert('Por favor, digite um CEP válido (pelo menos 8 dígitos)');
     }
 }
 
 function findCenters() {
-    const zipCode = document.getElementById('zipCode').value;
+    const inputFinder = document.getElementById('input-finder').value;
     const results = document.getElementById('results');
 
-    if (zipCode.length >= 5) {
+    if (inputFinder.length === 9) {
         results.classList.add('show');
     } else {
-        alert('Por favor, digite um CEP válido (pelo menos 5 dígitos)');
+        alert('Por favor, digite um CEP válido (pelo menos 8 dígitos)');
     }
-}
-
-function showTips() {
-    let tips = document.getElementById('container-tips');
-    tips.classList.add('show');
-
-    return;
-}
-
-function closeTips() {
-    let tips = document.getElementById('container-tips');
-    tips.classList.remove('show');
-    
-
-    return;
 }
 
 function shareInfo() {
@@ -50,28 +36,28 @@ function shareInfo() {
     }
 }
 
-document.getElementById('heroZip').addEventListener('keypress', function (e) {
+document.getElementById('search-hero').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') quickSearch();
 });
 
-document.getElementById('zipCode').addEventListener('keypress', function (e) {
+document.getElementById('input-finder').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') findCenters();
 });
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+function registerCenter() {
+    buscarEstados()
+    document.getElementById('registrationModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-        }
-    });
-}, observerOptions);
+function closeModal() {
+    document.getElementById('registrationModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
 
-document.querySelectorAll('.stat-item').forEach(el => {
-    el.style.animationPlayState = 'paused';
-    observer.observe(el);
-});
+window.onclick = function (event) {
+    const modal = document.getElementById('registrationModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
