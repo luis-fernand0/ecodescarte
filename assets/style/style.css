@@ -22,6 +22,16 @@
     transform: translateY(0);
   }
 }
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -459,6 +469,131 @@
   transform: translateY(-2px) scale(1.02);
 }
 
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  padding: 20px;
+}
+.modal .modal-content {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  padding: 3rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.3s ease-out;
+}
+.modal .modal-content .close-btn {
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  border-radius: 50%;
+  color: #6b7280;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal .modal-content .close-btn:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+.modal .modal-content .modal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.modal .modal-content .modal-header .modal-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+.modal .modal-content .modal-header .modal-subtitle {
+  color: #6b7280;
+  font-size: 1rem;
+}
+.modal .modal-content #registrationForm .form-group {
+  margin-bottom: 1.5rem;
+}
+.modal .modal-content #registrationForm .form-group .form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+.modal .modal-content #registrationForm .form-group .form-input {
+  background: #f9fafb;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.modal .modal-content #registrationForm .form-group .form-input:focus {
+  background: white;
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+.modal .modal-content #registrationForm .form-group .form-input:invalid {
+  border-color: #ef4444;
+}
+.modal .modal-content #registrationForm .form-group .form-select {
+  background: #f9fafb;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal .modal-content #registrationForm .form-group .form-select:focus {
+  background: white;
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+.modal .modal-content #registrationForm .btn-submit {
+  background: linear-gradient(135deg, #10b981, #059669);
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: white;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal .modal-content #registrationForm .btn-submit:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
 /* CTA Section */
 .cta-section {
   background: linear-gradient(135deg, #1f2937, #065f46);
@@ -479,36 +614,18 @@
   opacity: 0.9;
   max-width: 600px;
 }
-.cta-section .cta-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
 .cta-section .cta-buttons .btn-cta {
+  background: transparent;
   padding: 1rem 2.5rem;
-  border: none;
+  border: 2px solid #6ee7b7;
   border-radius: 0.75rem;
+  color: #6ee7b7;
   font-weight: 600;
   font-size: 1.125rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.cta-section .cta-buttons .primary {
-  background: #10b981;
-  color: white;
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-}
-.cta-section .cta-buttons .primary:hover {
-  background: #6ee7b7;
-  transform: scale(1.05);
-}
-.cta-section .cta-buttons .secondary {
-  background: transparent;
-  border: 2px solid #6ee7b7;
-  color: #6ee7b7;
-}
-.cta-section .cta-buttons .secondary:hover {
+.cta-section .cta-buttons .btn-cta:hover {
   background: #6ee7b7;
   color: white;
   transform: scale(1.05);
@@ -519,10 +636,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transform: translateY(-15px);
-  pointer-events: none;
 }
 .cta-section .container-tips .container-list-tips {
   background: rgba(255, 255, 255, 0.1);
@@ -531,22 +644,6 @@
   border-radius: 1rem;
   padding: 45px;
   text-align: left;
-}
-.cta-section .container-tips .container-list-tips .container-close-btn {
-  text-align: right;
-}
-.cta-section .container-tips .container-list-tips .container-close-btn button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-.cta-section .container-tips .container-list-tips .container-close-btn button:hover img {
-  transform: scale(1.2);
-}
-.cta-section .container-tips .container-list-tips .container-close-btn button img {
-  transition: all linear 0.3s;
-  width: 20px;
-  height: 20px;
 }
 .cta-section .container-tips .container-list-tips h3 {
   display: flex;
@@ -566,11 +663,6 @@
 .cta-section .container-tips .container-list-tips .list-tips {
   margin-top: 15px;
   line-height: 45px;
-}
-.cta-section .show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 
 /* Footer */
