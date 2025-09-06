@@ -219,45 +219,51 @@
                 <p class="modal-subtitle">Junte-se à nossa rede sustentável</p>
             </div>
 
-            <form id="registrationForm">
+            <form onsubmit="cadastrarPonto(event)" id="registrationForm">
                 <div class="form-group">
                     <label class="form-label" for="nome">Nome do Ponto de Descarte *</label>
-                    <input type="text" id="nome" name="nome" class="form-input"
-                        placeholder="Ex: EcoTech Reciclagem Ltda" required>
+                    <input onblur="validarDados(event)" type="text" id="nome" name="nome" class="form-input" placeholder="Ex: EcoTech Reciclagem Ltda" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="cnpj">CNPJ *</label>
-                    <input type="text" id="cnpj" name="cnpj" class="form-input" placeholder="00.000.000/0000-00"
-                        maxlength="18" oninput="formatCNPJ(this)" required>
+                    <input
+                        required
+                        type="text" 
+                        id="cnpj" 
+                        name="cnpj" 
+                        class="form-input" 
+                        placeholder="00.000.000/0000-00" 
+                        oninput="formatCnpj(event)" 
+                        onblur="validarDados(event)">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="estado">Estado *</label>
-                    <select onchange="buscarCidades()" id="estado" name="estado" class="form-select" required>
+                    <select onblur="validarDados(event)" onchange="buscarCidades()" id="estado" name="estado" class="form-select" required>
                         <option value="">Selecione o estado</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="cidade">Cidade *</label>
-                    <select id="cidade" name="cidade" class="form-select" required>
+                    <select onblur="validarDados(event)" id="cidade" name="cidade" class="form-select" required>
                         <option value="">Selecione uma cidade</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="endereco">Endereço *</label>
-                    <input type="text" id="endereco" name="endereco" class="form-input"
+                    <input onblur="validarDados(event)" type="text" id="endereco" name="endereco" class="form-input"
                         placeholder="Ex: Rua das Flores, Bairro Centro" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="numero">Número *</label>
-                    <input type="text" id="numero" name="numero" class="form-input" placeholder="Ex: 123" required>
+                    <input oninput="validarNumero(event)" onblur="validarDados(event)" type="text" id="numero" name="numero" class="form-input" placeholder="Ex: 123" required>
                 </div>
 
-                <button type="button" onclick="submitRegistration()" class="btn-submit">
+                <button disabled id="btn-submit" type="submit" class="btn-submit">
                     Finalizar Cadastro
                 </button>
             </form>
@@ -319,13 +325,12 @@
                 Cada dispositivo eletrônico reciclado adequadamente é um passo em direção à
                 sustentabilidade ambiental. Obrigado por fazer parte da solução.
             </p>
-
-            <p class="footer-copy">
-                <a href="https://github.com/luis-fernand0" target="_blank">
-                    © 2025 Desenvolvido por luis-fernand0
-                </a>
-            </p>
         </div>
+        <p class="footer-copy">
+            <a href="https://github.com/luis-fernand0" target="_blank">
+                © 2025 Desenvolvido por luis-fernand0
+            </a>
+        </p>
     </footer>
 
     <script src="assets/js/services/buscarEstados.js"></script>
@@ -334,6 +339,8 @@
     <script src="assets/js/utils/formatCep.js"></script>
     <script src="assets/js/utils/formatCnpj.js"></script>
     <script src="assets/js/utils/validarCnpj.js"></script>
+    <script src="assets/js/utils/validarDados.js"></script>
+    <script src="assets/js/utils/validarNumero.js"></script>
 </body>
 
 </html>
