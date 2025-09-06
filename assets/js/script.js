@@ -51,6 +51,7 @@ function registerCenter() {
 }
 
 function closeModal() {
+    document.getElementById('registrationForm').reset()
     document.getElementById('registrationModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
@@ -58,6 +59,7 @@ function closeModal() {
 window.onclick = function (event) {
     const modal = document.getElementById('registrationModal');
     if (event.target === modal) {
+        document.getElementById('registrationForm').reset()
         closeModal();
     }
 }
