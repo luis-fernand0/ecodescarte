@@ -665,7 +665,7 @@
     display: none;
     justify-content: center;
     align-items: center;
-    
+
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -780,10 +780,6 @@
                         border-color: #10b981;
                         box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
                     }
-
-                    &:invalid {
-                        border-color: #ef4444;
-                    }
                 }
 
                 .form-select {
@@ -808,6 +804,10 @@
                         border-color: #10b981;
                         box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
                     }
+                }
+
+                .invalid {
+                    border-color: #ef4444;
                 }
             }
 
@@ -837,12 +837,21 @@
                     transform: translateY(-2px);
                 }
 
+                &:disabled {
+                    background: linear-gradient(135deg, #9ca3af, #6b7280);
+                    
+                    cursor: not-allowed;
+
+                    color: #d1d5db;
+                    
+                    opacity: 0.6
+                }
+
             }
         }
     }
 }
 
-/* CTA Section */
 .cta-section {
     background: linear-gradient(135deg, #1f2937, #065f46);
 
@@ -943,7 +952,6 @@
     }
 }
 
-/* Footer */
 .footer {
     background: #1f2937;
 
@@ -979,7 +987,8 @@
     }
 
     .footer-copy {
-        margin-top: 100px;
+        margin: 100px 0 0 15px;
+
         color: #9ca3af;
         font-size: 12px;
         text-align: left;

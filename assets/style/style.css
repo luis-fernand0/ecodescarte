@@ -556,9 +556,6 @@
   border-color: #10b981;
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
-.modal .modal-content #registrationForm .form-group .form-input:invalid {
-  border-color: #ef4444;
-}
 .modal .modal-content #registrationForm .form-group .form-select {
   background: #f9fafb;
   width: 100%;
@@ -574,6 +571,9 @@
   outline: none;
   border-color: #10b981;
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+.modal .modal-content #registrationForm .form-group .invalid {
+  border-color: #ef4444;
 }
 .modal .modal-content #registrationForm .btn-submit {
   background: linear-gradient(135deg, #10b981, #059669);
@@ -593,8 +593,13 @@
   box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
   transform: translateY(-2px);
 }
+.modal .modal-content #registrationForm .btn-submit:disabled {
+  background: linear-gradient(135deg, #9ca3af, #6b7280);
+  cursor: not-allowed;
+  color: #d1d5db;
+  opacity: 0.6;
+}
 
-/* CTA Section */
 .cta-section {
   background: linear-gradient(135deg, #1f2937, #065f46);
   padding: 5rem 0;
@@ -665,7 +670,6 @@
   line-height: 45px;
 }
 
-/* Footer */
 .footer {
   background: #1f2937;
   text-align: center;
@@ -691,7 +695,7 @@
   margin: 0 auto;
 }
 .footer .footer-copy {
-  margin-top: 100px;
+  margin: 100px 0 0 15px;
   color: #9ca3af;
   font-size: 12px;
   text-align: left;
