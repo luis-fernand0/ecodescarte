@@ -1,3 +1,5 @@
+let btnSearch = document.getElementById('btn-kick-find')
+btnSearch.addEventListener('click', quickSearch)
 function quickSearch() {
     const inputSearch = document.getElementById('search-hero').value;
 
@@ -9,18 +11,12 @@ function quickSearch() {
         alert('Por favor, digite um CEP válido (pelo menos 8 dígitos)');
     }
 }
+document.getElementById('search-hero').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') quickSearch();
+});
 
-function findCenters() {
-    const inputFinder = document.getElementById('input-finder').value;
-    const results = document.getElementById('results');
-
-    if (inputFinder.length === 9) {
-        results.classList.add('show');
-    } else {
-        alert('Por favor, digite um CEP válido (pelo menos 8 dígitos)');
-    }
-}
-
+let btnShare = document.getElementById('btn-share')
+btnShare.addEventListener('click', shareInfo)
 function shareInfo() {
     if (navigator.share) {
         navigator.share({
@@ -36,20 +32,16 @@ function shareInfo() {
     }
 }
 
-document.getElementById('search-hero').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') quickSearch();
-});
-
-document.getElementById('input-finder').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') findCenters();
-});
-
+let btnRegister = document.getElementById('btn-register')
+btnRegister.addEventListener('click', registerCenter)
 function registerCenter() {
     buscarEstados()
     document.getElementById('registrationModal').style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
+let btnCloseModal = document.getElementById('btn-close-modal')
+btnCloseModal.addEventListener('click', closeModal)
 function closeModal() {
     document.getElementById('registrationForm').reset()
     document.getElementById('registrationModal').style.display = 'none';
