@@ -1,5 +1,8 @@
-async function buscarCidades() {
-    let estadoId = document.getElementById('estado').value
+let selectEstado = document.getElementById('estado')
+selectEstado.addEventListener('change', buscarCidades)
+
+async function buscarCidades(e) {
+    let estadoId = e.target.value
     let selectCidade = document.getElementById('cidade')
     
     selectCidade.innerHTML = ''

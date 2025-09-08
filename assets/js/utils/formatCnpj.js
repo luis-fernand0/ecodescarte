@@ -1,3 +1,5 @@
+let inputCnpj = document.getElementById('cnpj')
+inputCnpj.addEventListener('input', formatCnpj)
 function formatCnpj(e) {
     var cnpj = e.target
     var cnpjValue = cnpj.value.replace(/[^0-9]/g, '')

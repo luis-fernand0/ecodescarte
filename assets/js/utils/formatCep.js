@@ -1,5 +1,11 @@
+let inputHero = document.getElementById('search-hero')
+let inputFinder = document.getElementById('input-finder')
+
+inputHero.addEventListener('input', formatCep)
+inputFinder.addEventListener('input', formatCep)
+
 function formatCep(e) {
-    var cep = e
+    var cep = e.target
     var cepValue = cep.value.replace(/[^0-9]/g, '')
 
     if (cepValue.length > 5) {
