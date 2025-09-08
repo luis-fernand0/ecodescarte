@@ -30,9 +30,9 @@
                 </p>
                 <div class="search-box">
                     <div class="search-form">
-                        <input oninput="formatCep(event.target)" type="text" id="search-hero" class="search-input"
+                        <input type="text" id="search-hero" class="search-input"
                             placeholder="Digite o CEP para encontrar centros">
-                        <button onclick="quickSearch()" class="btn-primary">
+                        <button id="btn-kick-find" class="btn-primary">
                             Encontrar Centros
                         </button>
                     </div>
@@ -162,9 +162,9 @@
                 <p class="finder-subtitle">Descubra instalações certificadas de lixo eletrônico na sua região</p>
 
                 <div class="finder-form">
-                    <input oninput="formatCep(event.target)" type="text" id="input-finder" class="finder-input"
+                    <input type="text" id="input-finder" class="finder-input"
                         placeholder="Digite seu CEP">
-                    <button onclick="findCenters()" class="btn-secondary">Buscar</button>
+                    <button id="btn-find-centers" class="btn-secondary">Buscar</button>
                 </div>
 
                 <div id="results" class="results">
@@ -203,7 +203,7 @@
             <div class="registration-box">
                 <h2 class="registration-title">É um Ponto de Descarte?</h2>
                 <p class="registration-subtitle">Faça seu cadastro</p>
-                <button onclick="registerCenter()" class="btn-register">
+                <button id="btn-register" class="btn-register">
                     Cadastre-se
                 </button>
             </div>
@@ -212,17 +212,17 @@
 
     <div id="registrationModal" class="modal">
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <button class="close-btn" id="btn-close-modal">&times;</button>
 
             <div class="modal-header">
                 <h2 class="modal-title">Cadastro de Ponto de Descarte</h2>
                 <p class="modal-subtitle">Junte-se à nossa rede sustentável</p>
             </div>
 
-            <form onsubmit="cadastrarPonto(event)" id="registrationForm">
+            <form id="registrationForm">
                 <div class="form-group">
                     <label class="form-label" for="nome">Nome do Ponto de Descarte *</label>
-                    <input onblur="validarDados(event)" type="text" id="nome" name="nome" class="form-input" placeholder="Ex: EcoTech Reciclagem Ltda" required>
+                    <input  type="text" id="nome" name="nome" class="form-input" placeholder="Ex: EcoTech Reciclagem Ltda" required>
                 </div>
 
                 <div class="form-group">
@@ -233,34 +233,32 @@
                         id="cnpj" 
                         name="cnpj" 
                         class="form-input" 
-                        placeholder="00.000.000/0000-00" 
-                        oninput="formatCnpj(event)" 
-                        onblur="validarDados(event)">
+                        placeholder="00.000.000/0000-00">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="estado">Estado *</label>
-                    <select onblur="validarDados(event)" onchange="buscarCidades()" id="estado" name="estado" class="form-select" required>
+                    <select id="estado" name="estado" class="form-select" required>
                         <option value="">Selecione o estado</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="cidade">Cidade *</label>
-                    <select onblur="validarDados(event)" id="cidade" name="cidade" class="form-select" required>
+                    <select  id="cidade" name="cidade" class="form-select" required>
                         <option value="">Selecione uma cidade</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="endereco">Endereço *</label>
-                    <input onblur="validarDados(event)" type="text" id="endereco" name="endereco" class="form-input"
+                    <input  type="text" id="endereco" name="endereco" class="form-input"
                         placeholder="Ex: Rua das Flores, Bairro Centro" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="numero">Número *</label>
-                    <input oninput="validarNumero(event)" onblur="validarDados(event)" type="text" id="numero" name="numero" class="form-input" placeholder="Ex: 123" required>
+                    <input  type="text" id="numero" name="numero" class="form-input" placeholder="Ex: 123" required>
                 </div>
 
                 <button disabled id="btn-submit" type="submit" class="btn-submit">
@@ -277,7 +275,7 @@
                 próximas gerações</p>
 
             <div class="cta-buttons">
-                <button onclick="shareInfo()" class="btn-cta">
+                <button id="btn-share" class="btn-cta">
                     Compartilhar a Missão
                 </button>
             </div>
@@ -336,10 +334,11 @@
     <script src="assets/js/services/buscarEstados.js"></script>
     <script src="assets/js/services/buscarCidades.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/services/findCenters.js"></script>
     <script src="assets/js/utils/formatCep.js"></script>
     <script src="assets/js/utils/formatCnpj.js"></script>
     <script src="assets/js/utils/validarCnpj.js"></script>
-    <script src="assets/js/utils/validarDados.js"></script>
+    <script src="assets/js/utils/verificarCampos.js"></script>
     <script src="assets/js/utils/validarNumero.js"></script>
 </body>
 
