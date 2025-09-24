@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Ecodescarte • Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/style/reset.css">
+    <link rel="stylesheet" href="assets/style/login/login.css">
+</head>
+
+<body>
+    <main class="wrap">
+        <section class="card" role="region" aria-labelledby="formTitle">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">
+                    <span class="spin">
+                        <img src="/assets/images/recycle-icon.png" alt="recycle-icon">
+                    </span>
+                </div>
+                <h1 class="title" id="formTitle">Ecodescarte</h1>
+            </div>
+            <p class="subtitle">Login</p>
+
+            <form id="form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input id="email" class="input" name="email" type="email" placeholder="voce@exemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input id="password" class="input" name="password" type="password" placeholder="Senha" required>
+                </div>
+
+                <button class="btn" type="submit">Entrar</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="./assets/js/utils/validarEmail.js"></script>
+</body>
+</html>
