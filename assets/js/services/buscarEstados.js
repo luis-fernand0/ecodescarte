@@ -7,7 +7,7 @@ async function buscarEstados() {
         const data = await response.json()
         
         for(const estado of data) {
-            let newOption = new Option(estado.sigla, estado.id)
+            let newOption = new Option(estado.sigla, estado.sigla)
             selectEstado.add(newOption)
         }
     } catch (err) {
