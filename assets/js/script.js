@@ -42,6 +42,7 @@ function registerCenter() {
 
 let btnCloseModal = document.getElementById('btn-close-modal')
 btnCloseModal.addEventListener('click', closeModal)
+
 function closeModal() {
     document.getElementById('registrationForm').reset()
     document.getElementById('registrationModal').style.display = 'none';
