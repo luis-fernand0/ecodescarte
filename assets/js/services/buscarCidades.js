@@ -16,7 +16,7 @@ async function buscarCidades(e) {
         const data = await response.json()
 
         for (const cidade of data) {
-            let newOption = new Option(cidade.nome, cidade.id)
+            let newOption = new Option(cidade.nome, cidade.nome)
             selectCidade.add(newOption)
         }
     } catch (err) {
