@@ -5,8 +5,8 @@ function quickSearch() {
 
     if (inputSearch.length == 9) {
         document.querySelector('#input-finder').value = inputSearch;
-        document.querySelector('#results').classList.add('show');
-        document.querySelector('#results').scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('#btn-find-centers').click();
+        document.querySelector('#finder-box').scrollIntoView({ behavior: 'smooth' });
     } else {
         alert('Por favor, digite um CEP válido (pelo menos 8 dígitos)');
     }
@@ -33,22 +33,19 @@ function shareInfo() {
 }
 
 let btnRegister = document.getElementById('btn-register')
+let btnCloseModal = document.getElementById('btn-close-modal')
 btnRegister.addEventListener('click', registerCenter)
+btnCloseModal.addEventListener('click', closeModal)
 function registerCenter() {
     buscarEstados()
     document.getElementById('registrationModal').style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
-
-let btnCloseModal = document.getElementById('btn-close-modal')
-btnCloseModal.addEventListener('click', closeModal)
-
 function closeModal() {
     document.getElementById('registrationForm').reset()
     document.getElementById('registrationModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
-
 window.onclick = function (event) {
     const modal = document.getElementById('registrationModal');
     if (event.target === modal) {
