@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia de Descarte de Lixo Eletrônico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="assets/style/reset.css">
     <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/loading_modal/loading.css">
+    <link rel="stylesheet" href="assets/style/response_modal/response.css">
 </head>
 
 <body>
+    <div id="responseModal" class="response-modal"></div>
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -155,7 +159,7 @@
 
     <section class="finder-section">
         <div class="container">
-            <div class="finder-box">
+            <div id="finder-box" class="finder-box">
                 <h2 class="finder-title">Encontre Centros de Reciclagem</h2>
                 <p class="finder-subtitle">Descubra instalações certificadas de lixo eletrônico na sua região</p>
 
@@ -308,6 +312,8 @@
     <script src="assets/js/utils/verificarCampos.js"></script>
     <script src="assets/js/utils/validarNumero.js"></script>
     <script src="assets/js/services/cadastrarPonto.js"></script>
+    <script src="assets/js/utils/loading.js"></script>
+    <script src="assets/js/utils/response.js"></script>
 </body>
 
 </html>
