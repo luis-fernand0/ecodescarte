@@ -15,15 +15,6 @@ function verificarCampos() {
             elemento.classList.add('invalid')
             beforeInput = false
         }
-
-        if (elemento.id === "cnpj") {
-            let valid = validarCnpj(elemento.value)
-            inputCnpj = valid
-
-            if (!valid) {
-                elemento.classList.add('invalid')
-            }
-        }
     }
 
     btnSubmit.setAttribute('disabled', true)
